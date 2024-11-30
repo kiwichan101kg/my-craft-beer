@@ -1,7 +1,7 @@
 import { Colors } from "@/constants/Colors";
 import { Link } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View, Platform } from "react-native";
 
 type BeerCardProps = {
   id: string;
@@ -26,26 +26,28 @@ export const BeerCard = ({ item }: { item: BeerCardProps }) => {
 
   return (
     <View style={styles.card}>
-      <Link
-        href={{
-          pathname: "/beerDetail/[id]",
-          params: {
-            id: item.id, // 動的パスセグメント
-            name: item.name,
-            type: item.type,
-            image: item.image,
-          },
-        }}
-        style={styles.link}
-      >
-        <Image source={imageSource} style={styles.image} />
-        <View style={styles.content}>
-          <Text style={styles.name}>{item.name}</Text>
-          <View style={styles.typeBadge}>
-            <Text style={styles.typeText}>{item.type}</Text>
+      <View style={styles.linkWrapper}>
+        <Link
+          href={{
+            pathname: "/beerDetail/[id]",
+            params: {
+              id: item.id, // 動的パスセグメント
+              name: item.name,
+              type: item.type,
+              image: item.image,
+            },
+          }}
+          style={styles.link}
+        >
+          <Image source={imageSource} style={styles.image} />
+          <View style={styles.content}>
+            <Text style={styles.name}>{item.name}</Text>
+            <View style={styles.typeBadge}>
+              <Text style={styles.typeText}>{item.type}</Text>
+            </View>
           </View>
-        </View>
-      </Link>
+        </Link>
+      </View>
     </View>
   );
 };
@@ -55,13 +57,16 @@ const styles = StyleSheet.create({
     width: "48%",
     backgroundColor: "#fff",
     borderRadius: 12,
-    overflow: "hidden",
-    marginBottom: 16,
     shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 5,
     shadowOffset: { width: 0, height: 3 },
     elevation: 2,
+  },
+  linkWrapper: {
+    flex: 1,
+    borderRadius: 12,
+    overflow: Platform.OS === "ios" ? "hidden" : "visible",
   },
   link: {
     flex: 1,
@@ -80,10 +85,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
     marginBottom: 8,
-    textAlign: "left", // 左揃え
+    textAlign: "left",
   },
   typeBadge: {
-    alignSelf: "flex-start", // 左揃え
+    alignSelf: "flex-start",
     backgroundColor: Colors.light.primary,
     borderRadius: 16,
     paddingHorizontal: 12,
