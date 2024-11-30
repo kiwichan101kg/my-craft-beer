@@ -37,7 +37,7 @@ const beerData = [
     id: "5",
     name: "Amber Sunset",
     type: "Amber Ale",
-    image: "sample4.jpg",
+    image: "sample5.jpg",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff", // ベージュ系の背景
+    backgroundColor: "#FEFEFE", // ベージュ系の背景
     paddingHorizontal: 16,
     paddingTop: 16,
   },
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     marginBottom: 24, // 下に余白を追加
   },
   searchBar: {
-    backgroundColor: "#fff", // 検索バーの背景
+    backgroundColor: "#FFF", // 検索バーの背景
     borderRadius: 100,
     paddingVertical: 16,
     paddingHorizontal: 24,

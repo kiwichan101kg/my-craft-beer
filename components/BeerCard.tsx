@@ -1,5 +1,7 @@
+import { Colors } from "@/constants/Colors";
+import { Link } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, Image, View } from "react-native";
 
 type BeerCardProps = {
   id: string;
@@ -19,53 +21,77 @@ const imageMap = {
 };
 
 export const BeerCard = ({ item }: { item: BeerCardProps }) => {
-  console.log(`../assets/images/${item.image}`);
   const imageSource =
     imageMap[item.image as keyof typeof imageMap] || imageMap["default.jpg"];
 
   return (
-    <TouchableOpacity style={styles.card}>
-      <Image source={imageSource} style={styles.image} />
-      <Text style={styles.name}>{item.name}</Text>
-      <Text style={styles.type}>{item.type}</Text>
-    </TouchableOpacity>
+    <View style={styles.card}>
+      <Link
+        href={{
+          pathname: "/beerDetail/[id]",
+          params: {
+            id: item.id, // 動的パスセグメント
+            name: item.name,
+            type: item.type,
+            image: item.image,
+          },
+        }}
+        style={styles.link}
+      >
+        <Image source={imageSource} style={styles.image} />
+        <View style={styles.content}>
+          <Text style={styles.name}>{item.name}</Text>
+          <View style={styles.typeBadge}>
+            <Text style={styles.typeText}>{item.type}</Text>
+          </View>
+        </View>
+      </Link>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
-    width: "48%", // 横幅を画面の50%未満に設定（隙間を作る）
+    width: "48%",
     backgroundColor: "#fff",
-    borderRadius: 8,
-    alignItems: "center",
-    padding: 10,
-    elevation: 3, // Androidのシャドウ
-    shadowColor: "#000", // iOSのシャドウ
-    shadowOpacity: 0.1,
+    borderRadius: 12,
+    overflow: "hidden",
+    marginBottom: 16,
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
     shadowRadius: 5,
     shadowOffset: { width: 0, height: 3 },
   },
+  link: {
+    flex: 1,
+  },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 8,
-    marginBottom: 8,
+    width: "100%",
+    height: 150,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+  },
+  content: {
+    padding: 12,
   },
   name: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#4A3624", // 濃い茶色
-    textAlign: "center",
+    color: "#333",
+    marginBottom: 8,
+    textAlign: "left", // 左揃え
   },
-  type: {
+  typeBadge: {
+    alignSelf: "flex-start", // 左揃え
+    backgroundColor: Colors.light.primary,
+    borderRadius: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  typeText: {
     fontSize: 14,
-    color: "#8E7755", // サブテキスト用の薄い茶色
-    marginTop: 4,
-    backgroundColor: "#FFD44F", // 黄色のバッチ
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-    overflow: "hidden",
-    textAlign: "center",
+    fontWeight: "600",
+    color: "#fff",
   },
 });
