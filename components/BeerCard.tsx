@@ -57,11 +57,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: "hidden",
     marginBottom: 16,
-    elevation: 5,
     shadowColor: "#000",
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.1,
     shadowRadius: 5,
     shadowOffset: { width: 0, height: 3 },
+    elevation: 2,
   },
   link: {
     flex: 1,
