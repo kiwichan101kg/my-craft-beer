@@ -1,3 +1,9 @@
+import { Impression } from "@/components/beerDetail/ Impression";
+import { BeerInfo } from "@/components/beerDetail/BeerInfo";
+import { Calender } from "@/components/beerDetail/Calender";
+import { Pairing } from "@/components/beerDetail/Pairing";
+import Tasting from "@/components/beerDetail/Tasting";
+import { MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
   View,
@@ -6,12 +12,6 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import Tasting from "@/components/BeerDetail/Tasting";
-import { BeerInfo } from "@/components/BeerDetail/BeerInfo";
-import { Calender } from "@/components/BeerDetail/Calender";
-import { Pairing } from "@/components/BeerDetail/Pairing";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Impression } from "@/components/BeerDetail/ Impression";
 
 // TODO：APIで
 const info = {

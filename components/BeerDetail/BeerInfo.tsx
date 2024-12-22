@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
-import Tasting from "@/components/BeerDetail/Tasting";
 
 type BeerInfoProps = {
   name: string;
