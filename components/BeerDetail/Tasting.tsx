@@ -91,7 +91,7 @@ export default function Tasting() {
     let chart: any;
     if (skiaRef.current) {
       chart = echarts.init(skiaRef.current, "light", {
-        renderer: "skia",
+        // renderer: "skia",
         width: 300, // チャート幅を小さめに
         height: 300, // チャート高さを小さめに
       });
