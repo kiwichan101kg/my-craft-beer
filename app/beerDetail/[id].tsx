@@ -23,7 +23,7 @@ const info = {
 const beerInfoProps = {
   name: "Hop Explosion",
   brewery: "Great Hops Brewery",
-  style: "IPA",
+  beerStyle: "IPA",
   alcohol: "7.5%",
 };
 

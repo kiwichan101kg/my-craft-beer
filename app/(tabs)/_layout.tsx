@@ -36,6 +36,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="createPosts"
+        options={{
+          title: "追加",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="plus.circle.fill" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="favorites"
         options={{
           title: "お気に入り",
@@ -44,16 +53,7 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="createPosts"
-        options={{
-          title: "投稿",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="plus.circle.fill" color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="explore"
         options={{
           title: "探索",
@@ -70,7 +70,7 @@ export default function TabLayout() {
             <IconSymbol size={28} name="person.fill" color={color} />
           ),
         }}
-      />
+      /> */}
     </Tabs>
   );
 }

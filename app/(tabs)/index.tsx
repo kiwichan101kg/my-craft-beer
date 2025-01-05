@@ -15,31 +15,31 @@ const beerData = [
   {
     id: "1",
     name: "Hop Explosion",
-    type: "IPA",
+    beerStyle: "IPA",
     image: "sample1.jpg",
   },
   {
     id: "2",
     name: "Dark Matter",
-    type: "Stout",
+    beerStyle: "Stout",
     image: "sample2.jpg",
   },
   {
     id: "3",
     name: "Golden Ale",
-    type: "Pale Ale",
+    beerStyle: "Pale Ale",
     image: "sample3.jpg",
   },
   {
     id: "4",
     name: "Citrus Bliss",
-    type: "Wheat Beer",
+    beerStyle: "Wheat Beer",
     image: "sample4.jpg",
   },
   {
     id: "5",
     name: "Amber Sunset",
-    type: "Amber Ale",
+    beerStyle: "Amber Ale",
     image: "sample5.jpg",
   },
 ];
@@ -53,7 +53,7 @@ export default function HomeScreen() {
     const filtered = beerData.filter(
       (item) =>
         item.name.toLowerCase().includes(text.toLowerCase()) ||
-        item.type.toLowerCase().includes(text.toLowerCase())
+        item.beerStyle.toLowerCase().includes(text.toLowerCase())
     );
     setFilteredData(filtered);
   };
