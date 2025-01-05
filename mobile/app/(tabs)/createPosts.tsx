@@ -19,7 +19,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 type FormValues = {
   name: string;
   brewery: string;
-  style: string;
+  beerStyle: string;
   alcohol: string;
   location: string;
   purchasePlace: string;
@@ -44,7 +44,7 @@ export default function HomeScreen() {
     defaultValues: {
       name: "",
       brewery: "",
-      style: "",
+      beerStyle: "",
       alcohol: "",
       location: "",
       purchasePlace: "",
@@ -136,7 +136,7 @@ export default function HomeScreen() {
 
         <Controller
           control={control}
-          name="style"
+          name="beerStyle"
           defaultValue=""
           render={({ field: { onChange, value } }) => (
             <View style={styles.inputContainer}>

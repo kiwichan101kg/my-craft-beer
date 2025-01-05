@@ -1,0 +1,18 @@
+services:
+  db:
+    container_name: "my-craft-beer-db"
+    image: mysql:8.4
+    command: --log-bin-trust-function-creators=1
+    environment:
+      MYSQL_DATABASE: my_database
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+    platform: linux/arm64
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
