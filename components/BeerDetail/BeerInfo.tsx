@@ -1,10 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import { Badge } from "../Badge";
 
 type BeerInfoProps = {
   name: string;
   brewery: string;
-  style: string;
+  beerStyle: string;
   alcohol: string;
 };
 
@@ -20,9 +21,11 @@ export const BeerInfo = (props: BeerInfoProps) => {
       <Text style={styles.brewery}>{props.brewery}</Text>
 
       <View style={styles.badgeContainer}>
-        <View style={[styles.badge, { backgroundColor: "#FDB813" }]}>
-          <Text style={styles.badgeText}>{props.style}</Text>
-        </View>
+        {/* <View style={[styles.badge, { backgroundColor: "#FDB813" }]}>
+          <Text style={styles.badgeText}>{props.beerStyle}</Text>
+        </View> */}
+        <Badge beerStyle={props.beerStyle} />
+
         <View style={[styles.badge, { backgroundColor: "#4A3624" }]}>
           <Text style={styles.badgeText}>{props.alcohol}</Text>
         </View>
@@ -60,9 +63,10 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
     marginBottom: 24,
+    gap: 10,
   },
   badge: {
-    margin: 8,
+    alignSelf: "flex-start",
     borderRadius: 16,
     paddingHorizontal: 16,
     paddingVertical: 8,
@@ -70,7 +74,6 @@ const styles = StyleSheet.create({
   badgeText: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#FFF",
-    textAlign: "center",
+    color: "#fff", // テキストは常に白色
   },
 });

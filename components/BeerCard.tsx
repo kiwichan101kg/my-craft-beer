@@ -2,11 +2,12 @@ import { Colors } from "@/constants/Colors";
 import { Link } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, Image, View, Platform } from "react-native";
+import { Badge } from "./Badge";
 
 type BeerCardProps = {
   id: string;
   name: string;
-  type: string;
+  beerStyle: string;
   image: string;
 };
 
@@ -33,7 +34,7 @@ export const BeerCard = ({ item }: { item: BeerCardProps }) => {
             params: {
               id: item.id, // 動的パスセグメント
               name: item.name,
-              type: item.type,
+              beerStyle: item.beerStyle,
               image: item.image,
             },
           }}
@@ -42,9 +43,7 @@ export const BeerCard = ({ item }: { item: BeerCardProps }) => {
           <Image source={imageSource} style={styles.image} />
           <View style={styles.content}>
             <Text style={styles.name}>{item.name}</Text>
-            <View style={styles.typeBadge}>
-              <Text style={styles.typeText}>{item.type}</Text>
-            </View>
+            <Badge beerStyle={item.beerStyle} />
           </View>
         </Link>
       </View>
